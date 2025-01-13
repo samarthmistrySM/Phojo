@@ -30,16 +30,17 @@ export const createPost = async (req, res) => {
         .json({ message: "User not found" });
     }
 
-    const newPost = Post.create({
+    const newPost = await Post.create({
       caption,
       image,
       user,
     });
 
-    user.posts.push(newPost);
+    user.posts.push(newPost._id);
     await user.save();
+    res.status(StatusCodes.CREATED).json({message: "Post Uploaded"})
   } catch (error) {
-    console.error("Error registering user:", error.message);
+    console.error("Error uploading post:", error.message);
     res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
       .json({ message: "Internal server error" });

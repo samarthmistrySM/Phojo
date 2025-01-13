@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
+import { Register } from '../../services/AuthService'
 
 const SignUpScreen = () => {
   const [email, setEmail] = useState('')
@@ -9,11 +10,13 @@ const SignUpScreen = () => {
   const [fullname, setFullname] = useState('')
   const navigation = useNavigation()
 
-  const handleSignUp = () => {
-    console.log('Full Name:', fullname)
-    console.log('Username:', username)
-    console.log('Email:', email)
-    console.log('Password:', password)
+  const handleSignUp = async () => {
+    try {
+      await Register(fullname,username,email,password)
+      navigation.navigate('Login')
+    } catch (error) {
+      console.log(error.response?.data || error.message);
+    }
   }
 
   return (
