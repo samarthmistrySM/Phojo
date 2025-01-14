@@ -7,22 +7,21 @@ import {
   StyleSheet,
 } from 'react-native';
 import AuthContext from '../context/AuthContext';
+
 const ProfileScreen = () => {
-  const {handleLogout, isAuthenticated} = useContext(AuthContext);
+  const {handleLogout, isAuthenticated, loggedUser} = useContext(AuthContext);
 
   const handleClick = async () => {
     const result = await isAuthenticated();
     console.log(result);
   };
   return (
-    <SafeAreaView style={styles.container}>
-      <View>
-        <Text style={styles.text}>This is Profile Screen</Text>
+      <View style={styles.container}>
+        <Text style={styles.text}>This is {loggedUser.username}'s Profile Screen</Text>
         <TouchableOpacity style={styles.button} onPress={handleLogout}>
           <Text style={styles.buttonText}>Log In</Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
   );
 };
 

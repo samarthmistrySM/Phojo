@@ -18,6 +18,8 @@ const AuthState = props => {
           const userId = jwtDecode(token).id;
           const response = await axios.get(`${API_URL}/users/user/${userId}`);
           setLoggedUser(response.data.user);
+          console.log(loggedUser);
+          
           setIsLoggedIn(true);
         } else {
           setIsLoggedIn(false);
@@ -82,6 +84,7 @@ const AuthState = props => {
         loggedUser,
         isLoggedIn,
         update,
+        reload,
         isAuthenticated,
         handleLogout,
       }}>

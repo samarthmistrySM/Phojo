@@ -4,7 +4,7 @@ import Post from "../models/Post.js";
 
 export const getPosts = async (req, res) => {
   try {
-    const posts = await Post.find();
+    const posts = await Post.find().populate("user");
     if (!posts) {
       return res
         .status(StatusCodes.NOT_FOUND)

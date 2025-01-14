@@ -1,18 +1,18 @@
 import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, View, Button, Image, ActivityIndicator, TextInput } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
-import axios from 'axios';
-import FormData from 'form-data';
+
 import AuthContext from '../context/AuthContext';
-import { createPost } from '../services/UploadPost';
+import { createPost, uploadImageToCloudinary } from '../services/UploadPost';
+import { useNavigation } from '@react-navigation/native';
 
 const PlusScreen = () => {
   const [imageUri, setImageUri] = useState(null);
   const [loading, setLoading] = useState(false);
   const [uploadResult, setUploadResult] = useState(null);
-  const [caption, setCaption] = useState(''); // State to store the caption text
-
-  const { loggedUser } = useContext(AuthContext);
+  const [caption, setCaption] = useState(''); 
+  const navigation = useNavigation();
+  const { loggedUser, update } = useContext(AuthContext);
 
   const pickImage = () => {
     launchImageLibrary({ mediaType: 'photo', quality: 1 }, response => {
@@ -27,49 +27,20 @@ const PlusScreen = () => {
     });
   };
 
-  const uploadImageToCloudinary = async () => {
-    if (!imageUri || !caption) {
-      console.log('No image selected or caption is empty');
-      return;
-    }
-
-    setLoading(true);
-
-    const formData = new FormData();
-    formData.append('file', {
-      uri: imageUri,
-      type: 'image/jpeg',
-      name: 'image.jpg',
-    });
-    formData.append('upload_preset', 'gbxinum8');
-    formData.append('cloud_name', 'pinorama');
-    formData.append('caption', caption);
-
-    try {
-      const response = await axios.post(
-        'https://api.cloudinary.com/v1_1/pinorama/image/upload',
-        formData
-      );
-      return response.data.url;
-    } catch (error) {
-      console.error('Image upload failed:', error);
-      return null;
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleImageUpload = async () => {
-    const uploadedImageUrl = await uploadImageToCloudinary();
+    setLoading(true);
+    const uploadedImageUrl = await uploadImageToCloudinary(imageUri);
     if (uploadedImageUrl) {
       setUploadResult({ url: uploadedImageUrl });
-
       try {
-        const createdPost = createPost(uploadedImageUrl, caption, loggedUser._id);
-        console.log(createdPost);
-        
+        await createPost(uploadedImageUrl, caption, loggedUser._id);
+        update();
+        navigation.navigate("ProfileScreen");
       } catch (error) {
         console.error("Error logging in:", error.response?.data || error.message);
+      } finally {
+        setLoading(false);
       }
     }
   };
@@ -108,7 +79,8 @@ const PlusScreen = () => {
       {uploadResult && !loading && (
         <View style={styles.resultContainer}>
           <Text style={styles.resultText}>Image uploaded successfully!</Text>
-          <Text style={styles.resultText}>URL: {uploadResult.url}</Text>
+
+          {/* <Text style={styles.resultText}>URL: {uploadResult.url}</Text> */}
         </View>
       )}
     </View>

@@ -31,7 +31,7 @@
     <key>NSAppTransportSecurity</key>
     <dict>
       <key>NSAllowsArbitraryLoads</key>
-      <false />
+      <true />
       <key>NSAllowsLocalNetworking</key>
       <true />
     </dict>
@@ -55,5 +55,19 @@
     <array>
       <string>Dancing Script.ttf</string>
     </array>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+      <key>NSExceptionDomains</key>
+      <dict>
+        <key>res.cloudinary.com</key>
+        <dict>
+          <key>NSIncludesSubdomains</key>
+          <true />
+          <key>NSAllowsArbitraryLoads</key>
+          <true />
+        </dict>
+      </dict>
+    </dict>
+
   </dict>
 </plist>
