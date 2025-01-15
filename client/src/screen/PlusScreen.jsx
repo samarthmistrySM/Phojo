@@ -1,21 +1,29 @@
-import React, { useState, useContext } from 'react';
-import { StyleSheet, Text, View, Button, Image, ActivityIndicator, TextInput } from 'react-native';
-import { launchImageLibrary } from 'react-native-image-picker';
+import React, {useState, useContext} from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Image,
+  ActivityIndicator,
+  TextInput,
+} from 'react-native';
+import {launchImageLibrary} from 'react-native-image-picker';
 
 import AuthContext from '../context/AuthContext';
-import { createPost, uploadImageToCloudinary } from '../services/UploadPost';
-import { useNavigation } from '@react-navigation/native';
+import {createPost, uploadImageToCloudinary} from '../services/Upload';
+import {useNavigation} from '@react-navigation/native';
 
 const PlusScreen = () => {
   const [imageUri, setImageUri] = useState(null);
   const [loading, setLoading] = useState(false);
   const [uploadResult, setUploadResult] = useState(null);
-  const [caption, setCaption] = useState(''); 
+  const [caption, setCaption] = useState('');
   const navigation = useNavigation();
-  const { loggedUser, update } = useContext(AuthContext);
+  const {loggedUser, update} = useContext(AuthContext);
 
   const pickImage = () => {
-    launchImageLibrary({ mediaType: 'photo', quality: 1 }, response => {
+    launchImageLibrary({mediaType: 'photo', quality: 1}, response => {
       if (response.didCancel) {
         console.log('User canceled image picker');
       } else if (response.errorCode) {
@@ -27,18 +35,20 @@ const PlusScreen = () => {
     });
   };
 
-
   const handleImageUpload = async () => {
     setLoading(true);
     const uploadedImageUrl = await uploadImageToCloudinary(imageUri);
     if (uploadedImageUrl) {
-      setUploadResult({ url: uploadedImageUrl });
+      setUploadResult({url: uploadedImageUrl});
       try {
         await createPost(uploadedImageUrl, caption, loggedUser._id);
         update();
-        navigation.navigate("ProfileScreen");
+        navigation.navigate('ProfileScreen');
       } catch (error) {
-        console.error("Error logging in:", error.response?.data || error.message);
+        console.error(
+          'Error logging in:',
+          error.response?.data || error.message,
+        );
       } finally {
         setLoading(false);
       }
@@ -50,19 +60,20 @@ const PlusScreen = () => {
       <Text style={styles.title}>Pick and Upload an Image</Text>
 
       <View style={styles.buttonContainer}>
-        <Button title="Pick Image" onPress={pickImage} disabled={loading} />
+        <Button title={imageUri ? 'Change Image' : 'Pick Image'} onPress={pickImage} disabled={loading} />
       </View>
 
       {imageUri && !loading && (
-        <Image source={{ uri: imageUri }} style={styles.image} />
+        <View style={styles.imageContainer}>
+          <Image source={{uri: imageUri}} style={styles.image} />
+          <TextInput
+            style={styles.captionInput}
+            placeholder="Enter caption"
+            value={caption}
+            onChangeText={setCaption}
+          />
+        </View>
       )}
-
-      <TextInput
-        style={styles.captionInput}
-        placeholder="Enter caption"
-        value={caption}
-        onChangeText={setCaption}
-      />
 
       <View style={styles.buttonContainer}>
         <Button
@@ -79,8 +90,6 @@ const PlusScreen = () => {
       {uploadResult && !loading && (
         <View style={styles.resultContainer}>
           <Text style={styles.resultText}>Image uploaded successfully!</Text>
-
-          {/* <Text style={styles.resultText}>URL: {uploadResult.url}</Text> */}
         </View>
       )}
     </View>
@@ -90,9 +99,9 @@ const PlusScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 20,
+    paddingTop: 60,
     backgroundColor: '#f8f8f8',
   },
   title: {
@@ -117,11 +126,15 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
     shadowColor: '#000',
     shadowOpacity: 0.2,
-    shadowOffset: { width: 0, height: 4 },
+    shadowOffset: {width: 0, height: 4},
     shadowRadius: 4,
   },
+  imageContainer:{
+    width: 250,
+    
+  },
   captionInput: {
-    width: '80%',
+    width: '100%',
     height: 40,
     borderColor: '#ddd',
     borderWidth: 1,

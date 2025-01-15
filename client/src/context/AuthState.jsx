@@ -18,7 +18,6 @@ const AuthState = props => {
           const userId = jwtDecode(token).id;
           const response = await axios.get(`${API_URL}/users/user/${userId}`);
           setLoggedUser(response.data.user);
-          console.log(loggedUser);
           
           setIsLoggedIn(true);
         } else {
@@ -60,8 +59,8 @@ const AuthState = props => {
     try {
       console.log('Logging out...');
       await AsyncStorage.removeItem('token');
-      setLoggedUser({});
       setIsLoggedIn(false);
+      setLoggedUser({});
       console.log('Logout successful');
     } catch (error) {
       console.error('Error during logout:', error);

@@ -2,12 +2,13 @@ import { StatusCodes } from "http-status-codes";
 import User from "../models/User.js";
 
 export const getUser = async (req, res) => {
-  
   try {
     const userId = req.params.id;
     console.log(userId);
-    
-    const user = await User.findById(userId);
+
+    const user = await User.findById(userId)
+      .populate("posts")
+      .populate("followers");
 
     if (!user) {
       return res

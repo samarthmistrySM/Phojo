@@ -15,7 +15,9 @@ const MainStack = createBottomTabNavigator();
 const AuthNavigation = () => {
   return (
     <NavigationContainer>
-      <AuthStack.Navigator initialRouteName="Login">
+      <AuthStack.Navigator screenOptions={{
+        headerShown: false,
+      }} initialRouteName="Login">
         <AuthStack.Screen name={'Login'} component={LoginScreen} />
         <AuthStack.Screen name={'Register'} component={SignUpSceen} />
       </AuthStack.Navigator>
@@ -26,7 +28,9 @@ const AuthNavigation = () => {
 const MainNavigation = () => {
   return (
     <NavigationContainer>
-      <MainStack.Navigator initialRouteName="HomeScreen">
+      <MainStack.Navigator screenOptions={{
+        headerShown: false,
+      }} initialRouteName="HomeScreen">
         <MainStack.Screen name="HomeScreen" component={HomeScreen} />
         <MainStack.Screen name="PlusScreen" component={PlusScreen} />
         <MainStack.Screen name="ProfileScreen" component={ProfileScreen} />
@@ -37,10 +41,12 @@ const MainNavigation = () => {
 
 export default function Navigator() {
   const [isAuth, setIsAuth] = useState(false);
-  const {isAuthenticated, isLoggedIn} = useContext(AuthContext);
+  const {isAuthenticated, isLoggedIn, reload} = useContext(AuthContext);
 
   useEffect(() => {
     const checkAuth = async () => {
+      console.log("checking out...");
+      
       const isAuth = await isAuthenticated();
       setIsAuth(isAuth);
     };

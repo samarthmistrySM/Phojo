@@ -21,7 +21,7 @@ const SignUpScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Instagram</Text>
+      <Text style={styles.title}>Phojo</Text>
       <TextInput
         style={styles.input}
         placeholder="Full Name"
