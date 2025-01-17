@@ -1,9 +1,9 @@
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-import React,{useContext} from 'react';
+import React, {useContext} from 'react';
 import AuthContext from '../context/AuthContext';
 
 const ProfileHeader = ({user}) => {
-  const { handleLogout } = useContext(AuthContext);
+  const {handleLogout} = useContext(AuthContext);
   return (
     <View style={styles.profileSection}>
       <Text style={styles.username}>{user.username}</Text>
@@ -36,7 +36,9 @@ const ProfileHeader = ({user}) => {
         <TouchableOpacity style={[styles.btn, {borderColor: 'blue'}]}>
           <Text style={{textAlign: 'center', color: 'blue'}}>Edit Profile</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={handleLogout} style={[styles.btn, {borderColor: 'red'}]}>
+        <TouchableOpacity
+          onPress={handleLogout}
+          style={[styles.btn, {borderColor: 'red'}]}>
           <Text style={{textAlign: 'center', color: 'red'}}>Logout</Text>
         </TouchableOpacity>
       </View>
@@ -95,7 +97,6 @@ const styles = StyleSheet.create({
     width: '48%',
     paddingVertical: 5,
     paddingHorizontal: 10,
-    // marginHorizontal:5,
     borderRadius: 5,
     borderWidth: 1,
   },

@@ -22,7 +22,6 @@ const ProfileScreen = () => {
           loggedUser.posts?.map((post, index) => (
             <PostCard loggedUser={loggedUser} key={index} post={post} />
           ))}
-        
       </ScrollView>
     </View>
   );

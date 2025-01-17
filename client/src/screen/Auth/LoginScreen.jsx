@@ -1,26 +1,32 @@
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
-import React, { useState, useContext } from 'react'
-import { useNavigation } from '@react-navigation/native'
-import { Login } from '../../services/AuthService'
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Alert,
+  TouchableOpacity,
+} from 'react-native';
+import React, {useState, useContext} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import {Login} from '../../services/AuthService';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import AuthContext from '../../context/AuthContext';
-
 
 const LoginScreen = () => {
   const {update} = useContext(AuthContext);
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const navigation = useNavigation()
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigation = useNavigation();
 
   const handleLogin = async () => {
     try {
-      const response = await Login(email,password);
-      await AsyncStorage.setItem('token', response.token)
-      update()
+      const response = await Login(email, password);
+      await AsyncStorage.setItem('token', response.token);
+      update();
     } catch (error) {
-      console.log(error.response?.data || error.message);
+      Alert.alert('Login Failed',error.response?.data?.message || 'Something went wrong!');
     }
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -44,12 +50,13 @@ const LoginScreen = () => {
         <Text style={styles.buttonText}>Log In</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-        <Text style={{ color: '#3897f0', marginTop: 16 }}>Don't have an account? Sign Up</Text>
+        <Text style={{color: '#3897f0', marginTop: 16}}>
+          Don't have an account? Sign Up
+        </Text>
       </TouchableOpacity>
     </View>
-    
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -63,7 +70,7 @@ const styles = StyleSheet.create({
     fontSize: 50,
     fontWeight: 'bold',
     marginBottom: 32,
-    fontFamily: 'Dancing Script'
+    fontFamily: 'Dancing Script',
   },
   input: {
     width: '100%',
@@ -87,6 +94,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
-})
+});
 
-export default LoginScreen
+export default LoginScreen;

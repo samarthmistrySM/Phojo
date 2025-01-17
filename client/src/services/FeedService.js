@@ -5,8 +5,8 @@ import secrets from "../secrets";
 const API_URL = secrets.API_URL;
 
 export const getAllPosts = async () => {
-    const token = await AsyncStorage.getItem('token');
     try {
+        const token = await AsyncStorage.getItem('token');
         const response = await axios.get(`${API_URL}/posts`,{
             headers: {
                 Authorization: `Bearer ${token}`
@@ -16,7 +16,7 @@ export const getAllPosts = async () => {
         return response.data.posts;
         
     } catch (error) {
-        console.error("Error Getting Posts:", error.response?.data || error.message);
+        console.log("Error Getting Posts:", error.response?.data || error.message);
         throw error;
     }
 }

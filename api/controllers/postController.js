@@ -46,3 +46,38 @@ export const createPost = async (req, res) => {
       .json({ message: "Internal server error" });
   }
 };
+
+export const deletePost = async (req, res) => {
+  
+  const postId = req.params.postId;
+  const userId = req.user.id;
+  
+  try {
+    const post = await Post.findById(postId);
+    const user = await User.findById(userId);
+
+    if(!post){
+      return res.status(StatusCodes.NOT_FOUND).json({message: 'Post not found'});
+    }
+
+    if(!user){
+      return res.status(StatusCodes.NOT_FOUND).json({message: 'User not found'});
+    }  
+
+    if(post.user.toString() != user._id){
+      return res.status(StatusCodes.UNAUTHORIZED).json({message: 'User Unauthorized'})
+    }
+
+    await Post.findByIdAndDelete(postId);
+    await user.posts.pull(postId);
+    await user.save();
+
+    res.status(StatusCodes.OK).json({message: 'Post Deleted!'});
+
+  } catch (error) {
+    console.error("Error uploading post:", error.message);
+    res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ message: "Internal server error" });
+  }
+}

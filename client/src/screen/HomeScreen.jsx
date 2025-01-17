@@ -15,7 +15,10 @@ const HomeScreen = () => {
         const posts = await getAllPosts();
         setPosts(posts);
       } catch (error) {
-        console.log(error);
+        Alert.alert(
+          'Post Fetch Failed',
+          error.response?.data?.message || 'Something went wrong!',
+        );
       }
     };
     getPosts();
@@ -24,7 +27,7 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scroller}>
-        {posts?.map((post,index) => (
+        {posts?.map((post, index) => (
           <PostCard key={index} post={post} />
         ))}
       </ScrollView>
@@ -35,13 +38,9 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop:60,
+    paddingTop: 60,
     backgroundColor: '#ffffff',
   },
-  scroller: {
-    padding: 10
-  }
-  
 });
 
 export default HomeScreen;

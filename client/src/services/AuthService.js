@@ -12,7 +12,7 @@ export const Login = async (email, password) => {
 
     return response.data;
   } catch (error) {
-    console.error("Error logging in:", error.response?.data || error.message);
+    console.log("Error logging in:", error.response?.data || error.message);
     throw error;
   }
 };
@@ -28,7 +28,7 @@ export const Register = async (fullname, username, email, password) => {
 
     return response.data;
   } catch (error) {
-    console.error("Error registering:", error.response?.data || error.message);
+    console.log("Error registering:", error.response?.data || error.message);
     throw error;
   }
 };
