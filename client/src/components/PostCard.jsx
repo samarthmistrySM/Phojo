@@ -5,25 +5,66 @@ import {
   Image,
   TouchableOpacity,
   Alert,
-} from 'react-native';
-import React, {useContext} from 'react';
-import {deletePost} from '../services/PostService';
-import AuthContext from '../context/AuthContext';
-import {formatDistanceToNow} from 'date-fns';
 
-const PostCard = ({index, post, loggedUser}) => {
-  const {update} = useContext(AuthContext);
-  const HandleDeletePost = async postId => {
+} from 'react-native';
+import React, { useContext, useState } from 'react';
+import { deletePost, likeDisLikePost } from '../services/PostService';
+import AuthContext from '../context/AuthContext';
+import { formatDistanceToNow } from 'date-fns';
+import CommentModal from './CommentModal';
+
+const commentIcon = require("../assets/images/message.png");
+const likeIcon = require("../assets/images/heart.png");
+const disLikeIcon = require("../assets/images/heart.fill.png");
+const deleteIcon = require("../assets/images/xmark.bin.png");
+
+const PostCard = ({ index, post, loggedUser }) => {
+  const { update } = useContext(AuthContext);
+  const [isCommentModalVisible, setIsCommentModalVisible] = useState(false);
+
+  const HandleDeletePost = postId => {
+    Alert.alert('Delete Post', 'Are you want to delete post?', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+      },
+      {
+        text: 'OK', onPress: async () => {
+          try {
+            await deletePost(postId);
+            update();
+          } catch (error) {
+            Alert.alert(
+              'Delete Failed',
+              error.response?.data?.message || 'Something went wrong!',
+            );
+          }
+        }
+      },
+    ]);
+
+  };
+
+  const handleLikePost = async postId => {
     try {
-      await deletePost(postId);
+      await likeDisLikePost(postId);
       update();
     } catch (error) {
       Alert.alert(
-        'Delete Failed',
+        'Like Failed',
         error.response?.data?.message || 'Something went wrong!',
       );
     }
   };
+
+  const handleCommentClick = () => {
+    setIsCommentModalVisible(true);
+  };
+
+  const handleCloseCommentModal = () => {
+    setIsCommentModalVisible(false);
+  };
+
   return (
     <View key={index} style={styles.card}>
       <View style={styles.userInfo}>
@@ -39,34 +80,40 @@ const PostCard = ({index, post, loggedUser}) => {
             : post.user.fullname}
         </Text>
       </View>
-      <Image style={styles.postImage} source={{uri: post.image}} />
+      <Image style={styles.postImage} source={{ uri: post.image }} />
       <View style={styles.captionContainer}>
-        <Text style={{fontWeight: '600', marginRight: '5', fontSize: '16', textTransform:'lowercase'}}>
+        <Text style={styles.usernameText}>
           {loggedUser?._id === post.user
             ? loggedUser.username
             : post.user.username}
         </Text>
-        <Text style={{fontSize: '15'}}>{post.caption}</Text>
+        <Text style={styles.caption}>{post.caption}</Text>
       </View>
       <View style={styles.btnsContainer}>
-        <TouchableOpacity style={styles.btn}>
-          <Text style={[styles.btnText, {color: 'blue'}]}>
-            {post.likes.length}
-            {post.likes.includes(loggedUser?._id) ? ' DL' : ' L'}
-          </Text>
+        <TouchableOpacity style={[styles.btn, { flexDirection: 'row' }]} onPress={() => handleLikePost(post._id)}>
+          <Text style={styles.likeCount}>{post.likes.length}</Text>
+          <Image
+            style={[styles.icon, { tintColor: 'blue' }]}
+            source={post.likes.includes(loggedUser?._id) ? disLikeIcon : likeIcon}
+          />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btn}>
-          <Text style={[styles.btnText, {color: 'green'}]}>C</Text>
+
+        <TouchableOpacity style={styles.btn} onPress={handleCommentClick}>
+          <Image style={[styles.icon, { tintColor: 'green' }]} source={commentIcon} />
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.btn}
-          onPress={() => HandleDeletePost(post._id)}>
-          <Text style={[styles.btnText, {color: 'red'}]}>D</Text>
+
+        <TouchableOpacity style={styles.btn} onPress={() => HandleDeletePost(post._id)}>
+          <Image style={[styles.icon, { tintColor: 'red' }]} source={deleteIcon} />
         </TouchableOpacity>
       </View>
       <Text style={styles.date}>
-        {formatDistanceToNow(new Date(post.createdAt), {addSuffix: true})}
+        {formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}
       </Text>
+      <CommentModal
+        isCommentModalVisible={isCommentModalVisible}
+        handleCloseCommentModal={handleCloseCommentModal}
+        post={post}
+      />
     </View>
   );
 };
@@ -83,12 +130,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 10,
+    paddingLeft: 10,
   },
   profileImage: {
     width: 50,
     height: 50,
     borderRadius: 25,
-    marginRight: 5,
+    marginRight: 10,
   },
   username: {
     fontSize: 16,
@@ -99,28 +147,48 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 300,
     marginBottom: 10,
+
   },
   captionContainer: {
-    paddingLeft: 10,
     flexDirection: 'row',
-    lineHeight: 20,
+    alignItems: 'flex-start',
+    marginBottom: 10,
+    paddingLeft: 10,
+  },
+  usernameText: {
+    fontWeight: '600',
+    fontSize: 16,
+    marginRight: 5,
+    textTransform: 'lowercase',
+  },
+  caption: {
+    fontSize: 15,
   },
   btnsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    paddingTop: 20,
+    marginTop: 10,
   },
   btn: {
-    marginHorizontal: 5,
+    alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 5,
+    width: 40,
   },
-  btnText: {
-    fontSize: 16,
-    textAlign: 'center',
+  icon: {
+    width: 21,
+    height: 19,
+  },
+  likeCount: {
+    fontSize: 17,
+    color: 'blue',
+    paddingRight: 10,
+    marginTop: 2,
   },
   date: {
-    paddingLeft: 10,
-    paddingTop: 20,
+    fontSize: 12,
     color: '#878787',
+    marginTop: 10,
+    paddingLeft: 10,
   },
 });

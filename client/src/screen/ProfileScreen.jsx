@@ -12,7 +12,7 @@ import ProfileHeader from '../components/ProfileHeader';
 import PostCard from '../components/PostCard';
 
 const ProfileScreen = () => {
-  const {handleLogout, loggedUser} = useContext(AuthContext);
+  const {loggedUser} = useContext(AuthContext);
 
   return (
     <View style={styles.container}>

@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
     alignItems: 'start',
     backgroundColor: '#fff',
     borderRadius: 10,
-    padding: 20,
+    padding: 15,
+    paddingVertical:20,
     elevation: 5,
   },
   profileHeader: {

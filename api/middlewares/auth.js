@@ -5,14 +5,17 @@ import User from "../models/User.js";
 export const authenticateToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
-
   if (!token) {
-    return res.status(StatusCodes.UNAUTHORIZED).send("Not Authorized!");
+    return res
+      .status(StatusCodes.UNAUTHORIZED)
+      .json({ message: "Not Authorized!" });
   }
 
   jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
     if (err) {
-      return res.status(StatusCodes.UNAUTHORIZED).send("Access Denied!");
+      return res
+        .status(StatusCodes.UNAUTHORIZED)
+        .json({ message: "Access Denied!" });
     }
 
     req.user = decode;

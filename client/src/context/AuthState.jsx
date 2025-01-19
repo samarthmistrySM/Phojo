@@ -15,16 +15,18 @@ const AuthState = props => {
       try {
         const token = await AsyncStorage.getItem('token');
         if (token && token !== '') {
-          const userId = jwtDecode(token).id;
-          const response = await axios.get(`${API_URL}/users/user/${userId}`);
+          const response = await axios.get(`${API_URL}/users/auth`,{
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
           setLoggedUser(response.data.user);
-          
           setIsLoggedIn(true);
         } else {
           setIsLoggedIn(false);
         }
       } catch (error) {
-        console.error('Error fetching user:', error);
+        console.log('Error fetching user:', error);
         setIsLoggedIn(false);
       }
     };
@@ -44,6 +46,7 @@ const AuthState = props => {
         if (decoded && decoded.exp) {
           return decoded.exp > Date.now() / 1000;
         } else {
+          await AsyncStorage.removeItem('token');
           console.error('Token does not contain exp field');
           return false;
         }
