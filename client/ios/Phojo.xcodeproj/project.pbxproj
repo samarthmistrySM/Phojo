@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* MyApp2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MyApp2Tests.m */; };
+		00E356F31AD99517003FC87E /* PhojoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* PhojoTests.m */; };
 		05078FC884B94B67BF048487 /* Dancing Script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE69BC7FA6D94E9ABA8A2467 /* Dancing Script.ttf */; };
 		0EF0EF321EFAE3130EC6B061 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		29B8BD578810E39015DFC336 /* libPods-MyApp2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5E7D1A80CC4F1D3B01C52E0 /* libPods-MyApp2.a */; };
-		3613613814BE5E22DE782374 /* libPods-MyApp2-MyApp2Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 273931251BCD934B7D73013B /* libPods-MyApp2-MyApp2Tests.a */; };
+		29B8BD578810E39015DFC336 /* libPods-Phojo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5E7D1A80CC4F1D3B01C52E0 /* libPods-Phojo.a */; };
+		3613613814BE5E22DE782374 /* libPods-Phojo-PhojoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 273931251BCD934B7D73013B /* libPods-Phojo-PhojoTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -24,29 +24,29 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = MyApp2;
+			remoteInfo = "Phojo";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00C5C36EF48E8756CE1864CA /* Pods-MyApp2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyApp2.debug.xcconfig"; path = "Target Support Files/Pods-MyApp2/Pods-MyApp2.debug.xcconfig"; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* MyApp2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyApp2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00C5C36EF48E8756CE1864CA /* Pods-Phojo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phojo.debug.xcconfig"; path = "Target Support Files/Pods-Phojo/Pods-Phojo.debug.xcconfig"; sourceTree = "<group>"; };
+		00E356EE1AD99517003FC87E /* PhojoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PhojoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* MyApp2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyApp2Tests.m; sourceTree = "<group>"; };
-		0D88A3E46B646FF4BC19EFAF /* Pods-MyApp2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyApp2.release.xcconfig"; path = "Target Support Files/Pods-MyApp2/Pods-MyApp2.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* MyApp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyApp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MyApp2/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = MyApp2/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MyApp2/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MyApp2/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MyApp2/main.m; sourceTree = "<group>"; };
-		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = MyApp2/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		273931251BCD934B7D73013B /* libPods-MyApp2-MyApp2Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyApp2-MyApp2Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6ECA3A01F334FCEA195C8280 /* Pods-MyApp2-MyApp2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyApp2-MyApp2Tests.release.xcconfig"; path = "Target Support Files/Pods-MyApp2-MyApp2Tests/Pods-MyApp2-MyApp2Tests.release.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MyApp2/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A5E7D1A80CC4F1D3B01C52E0 /* libPods-MyApp2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyApp2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F21AD99517003FC87E /* PhojoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PhojoTests.m"; sourceTree = "<group>"; };
+		0D88A3E46B646FF4BC19EFAF /* Pods-Phojo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phojo.release.xcconfig"; path = "Target Support Files/Pods-Phojo/Pods-Phojo.release.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Phojo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Phojo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Phojo/AppDelegate.h"; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = "Phojo/AppDelegate.mm"; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Phojo/Images.xcassets"; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Phojo/Info.plist"; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Phojo/main.m"; sourceTree = "<group>"; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = Phojo/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		273931251BCD934B7D73013B /* libPods-Phojo-PhojoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Phojo-PhojoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6ECA3A01F334FCEA195C8280 /* Pods-Phojo-PhojoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phojo-PhojoTests.release.xcconfig"; path = "Target Support Files/Pods-Phojo-PhojoTests/Pods-Phojo-PhojoTests.release.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "Phojo/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		A5E7D1A80CC4F1D3B01C52E0 /* libPods-Phojo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Phojo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F7A62F3DDC195BF6FF8816BD /* Pods-MyApp2-MyApp2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyApp2-MyApp2Tests.debug.xcconfig"; path = "Target Support Files/Pods-MyApp2-MyApp2Tests/Pods-MyApp2-MyApp2Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		F7A62F3DDC195BF6FF8816BD /* Pods-Phojo-PhojoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Phojo-PhojoTests.debug.xcconfig"; path = "Target Support Files/Pods-Phojo-PhojoTests/Pods-Phojo-PhojoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FE69BC7FA6D94E9ABA8A2467 /* Dancing Script.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Dancing Script.ttf"; path = "../assets/fonts/Dancing Script.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3613613814BE5E22DE782374 /* libPods-MyApp2-MyApp2Tests.a in Frameworks */,
+				3613613814BE5E22DE782374 /* libPods-Phojo-PhojoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,20 +63,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29B8BD578810E39015DFC336 /* libPods-MyApp2.a in Frameworks */,
+				29B8BD578810E39015DFC336 /* libPods-Phojo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* MyApp2Tests */ = {
+		00E356EF1AD99517003FC87E /* PhojoTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* MyApp2Tests.m */,
+				00E356F21AD99517003FC87E /* PhojoTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = MyApp2Tests;
+			path = "PhojoTests";
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -87,7 +87,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* MyApp2 */ = {
+		13B07FAE1A68108700A75B9A /* Phojo */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -98,15 +98,15 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 			);
-			name = MyApp2;
+			name = "Phojo";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				A5E7D1A80CC4F1D3B01C52E0 /* libPods-MyApp2.a */,
-				273931251BCD934B7D73013B /* libPods-MyApp2-MyApp2Tests.a */,
+				A5E7D1A80CC4F1D3B01C52E0 /* libPods-Phojo.a */,
+				273931251BCD934B7D73013B /* libPods-Phojo-PhojoTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,9 +121,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* MyApp2 */,
+				13B07FAE1A68108700A75B9A /* Phojo */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* MyApp2Tests */,
+				00E356EF1AD99517003FC87E /* PhojoTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -137,8 +137,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* MyApp2.app */,
-				00E356EE1AD99517003FC87E /* MyApp2Tests.xctest */,
+				13B07F961A680F5B00A75B9A /* Phojo.app */,
+				00E356EE1AD99517003FC87E /* PhojoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,10 +154,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				00C5C36EF48E8756CE1864CA /* Pods-MyApp2.debug.xcconfig */,
-				0D88A3E46B646FF4BC19EFAF /* Pods-MyApp2.release.xcconfig */,
-				F7A62F3DDC195BF6FF8816BD /* Pods-MyApp2-MyApp2Tests.debug.xcconfig */,
-				6ECA3A01F334FCEA195C8280 /* Pods-MyApp2-MyApp2Tests.release.xcconfig */,
+				00C5C36EF48E8756CE1864CA /* Pods-Phojo.debug.xcconfig */,
+				0D88A3E46B646FF4BC19EFAF /* Pods-Phojo.release.xcconfig */,
+				F7A62F3DDC195BF6FF8816BD /* Pods-Phojo-PhojoTests.debug.xcconfig */,
+				6ECA3A01F334FCEA195C8280 /* Pods-Phojo-PhojoTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -165,9 +165,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* MyApp2Tests */ = {
+		00E356ED1AD99517003FC87E /* PhojoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MyApp2Tests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "PhojoTests" */;
 			buildPhases = (
 				2A3CCD5F53D09DA125300B20 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -181,14 +181,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = MyApp2Tests;
-			productName = MyApp2Tests;
-			productReference = 00E356EE1AD99517003FC87E /* MyApp2Tests.xctest */;
+			name = "PhojoTests";
+			productname = "PhojoTests";
+			productReference = 00E356EE1AD99517003FC87E /* PhojoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* MyApp2 */ = {
+		13B07F861A680F5B00A75B9A /* Phojo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MyApp2" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Phojo" */;
 			buildPhases = (
 				46181852DC03B52A6B887977 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -202,9 +202,9 @@
 			);
 			dependencies = (
 			);
-			name = MyApp2;
-			productName = MyApp2;
-			productReference = 13B07F961A680F5B00A75B9A /* MyApp2.app */;
+			name = "Phojo";
+			productName = "Phojo";
+			productReference = 13B07F961A680F5B00A75B9A /* Phojo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -224,7 +224,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "MyApp2" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Phojo" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -237,8 +237,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* MyApp2 */,
-				00E356ED1AD99517003FC87E /* MyApp2Tests */,
+				13B07F861A680F5B00A75B9A /* Phojo */,
+				00E356ED1AD99517003FC87E /* PhojoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -287,15 +287,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyApp2-MyApp2Tests/Pods-MyApp2-MyApp2Tests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Phojo-PhojoTests/Pods-Phojo-PhojoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyApp2-MyApp2Tests/Pods-MyApp2-MyApp2Tests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Phojo-PhojoTests/Pods-Phojo-PhojoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyApp2-MyApp2Tests/Pods-MyApp2-MyApp2Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Phojo-PhojoTests/Pods-Phojo-PhojoTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2A3CCD5F53D09DA125300B20 /* [CP] Check Pods Manifest.lock */ = {
@@ -313,7 +313,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MyApp2-MyApp2Tests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Phojo-PhojoTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -326,15 +326,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyApp2-MyApp2Tests/Pods-MyApp2-MyApp2Tests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Phojo-PhojoTests/Pods-Phojo-PhojoTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyApp2-MyApp2Tests/Pods-MyApp2-MyApp2Tests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Phojo-PhojoTests/Pods-Phojo-PhojoTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyApp2-MyApp2Tests/Pods-MyApp2-MyApp2Tests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Phojo-PhojoTests/Pods-Phojo-PhojoTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3C51D8181614883184C68BC6 /* [CP] Embed Pods Frameworks */ = {
@@ -343,15 +343,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyApp2/Pods-MyApp2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Phojo/Pods-Phojo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyApp2/Pods-MyApp2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Phojo/Pods-Phojo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyApp2/Pods-MyApp2-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Phojo/Pods-Phojo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		46181852DC03B52A6B887977 /* [CP] Check Pods Manifest.lock */ = {
@@ -369,7 +369,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MyApp2-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Phojo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -382,15 +382,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyApp2/Pods-MyApp2-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Phojo/Pods-Phojo-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyApp2/Pods-MyApp2-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Phojo/Pods-Phojo-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyApp2/Pods-MyApp2-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Phojo/Pods-Phojo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -400,7 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* MyApp2Tests.m in Sources */,
+				00E356F31AD99517003FC87E /* PhojoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +418,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* MyApp2 */;
+			target = 13B07F861A680F5B00A75B9A /* Phojo */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -426,14 +426,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F7A62F3DDC195BF6FF8816BD /* Pods-MyApp2-MyApp2Tests.debug.xcconfig */;
+			baseConfigurationReference = F7A62F3DDC195BF6FF8816BD /* Pods-Phojo-PhojoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = MyApp2Tests/Info.plist;
+				INFOPLIST_FILE = "PhojoTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -447,17 +447,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyApp2.app/MyApp2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Phojo.app/Phojo";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6ECA3A01F334FCEA195C8280 /* Pods-MyApp2-MyApp2Tests.release.xcconfig */;
+			baseConfigurationReference = 6ECA3A01F334FCEA195C8280 /* Pods-Phojo-PhojoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = MyApp2Tests/Info.plist;
+				INFOPLIST_FILE = "PhojoTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -471,20 +471,21 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyApp2.app/MyApp2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Phojo.app/Phojo";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00C5C36EF48E8756CE1864CA /* Pods-MyApp2.debug.xcconfig */;
+			baseConfigurationReference = 00C5C36EF48E8756CE1864CA /* Pods-Phojo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6AWQQCT6VP;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = MyApp2/Info.plist;
+				INFOPLIST_FILE = "Phojo/Info.plist";
+             INFOPLIST_KEY_CFBundleDisplayName = "Phojo";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -497,7 +498,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = reactnative.www;
-				PRODUCT_NAME = MyApp2;
+				PRODUCT_NAME = "Phojo";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -506,13 +507,14 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D88A3E46B646FF4BC19EFAF /* Pods-MyApp2.release.xcconfig */;
+			baseConfigurationReference = 0D88A3E46B646FF4BC19EFAF /* Pods-Phojo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6AWQQCT6VP;
-				INFOPLIST_FILE = MyApp2/Info.plist;
+				INFOPLIST_FILE = "Phojo/Info.plist";
+             INFOPLIST_KEY_CFBundleDisplayName = "Phojo";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -525,7 +527,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = reactnative.www;
-				PRODUCT_NAME = MyApp2;
+				PRODUCT_NAME = "Phojo";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -686,7 +688,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MyApp2Tests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "PhojoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -695,7 +697,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MyApp2" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Phojo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -704,7 +706,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "MyApp2" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Phojo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
