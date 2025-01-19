@@ -1,29 +1,52 @@
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-import React, {useContext} from 'react';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Alert } from 'react-native';
+import React, { useContext, useState } from 'react';
 import AuthContext from '../context/AuthContext';
+import EditProfileModal from './EditProfileModal';
 
-const ProfileHeader = ({user}) => {
-  const {handleLogout} = useContext(AuthContext);
+const ProfileHeader = ({ user }) => {
+  const { handleLogout } = useContext(AuthContext);
+  const [isEditProfileOpen, setIsEditProfileOpen] = useState(false)
+
+  const handleEditProfileClick = () => {
+    setIsEditProfileOpen(true);
+  };
+
+  const handleCloseEditProfileModal = () => {
+    setIsEditProfileOpen(false);
+  };
+
+  const handleLogoutClick = () => {
+    Alert.alert('Logout', 'Are you want to Logout?', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+      },
+      {
+        text: 'OK', onPress: () => handleLogout()
+      },
+    ]);
+  }
+
   return (
     <View style={styles.profileSection}>
       <Text style={styles.username}>{user.username}</Text>
       <View style={styles.profileHeader}>
-        <Image style={styles.profileImage} source={{uri: user.dp}} />
+        <Image style={styles.profileImage} source={{ uri: user.dp }} />
         <View style={styles.profileCounts}>
           <View style={styles.countItem}>
-            <Text style={{fontSize: 18, fontWeight: '600'}}>
+            <Text style={{ fontSize: 18, fontWeight: '600' }}>
               {user.posts?.length}
             </Text>
             <Text>Posts</Text>
           </View>
           <View style={styles.countItem}>
-            <Text style={{fontSize: 18, fontWeight: '600'}}>
+            <Text style={{ fontSize: 18, fontWeight: '600' }}>
               {user.followers?.length}
             </Text>
             <Text>Followers</Text>
           </View>
           <View style={styles.countItem}>
-            <Text style={{fontSize: 18, fontWeight: '600'}}>
+            <Text style={{ fontSize: 18, fontWeight: '600' }}>
               {user.followers?.length}
             </Text>
             <Text>Following</Text>
@@ -33,15 +56,19 @@ const ProfileHeader = ({user}) => {
       <Text style={styles.fullname}>{user.fullname}</Text>
 
       <View style={styles.btnContainer}>
-        <TouchableOpacity style={[styles.btn, {borderColor: 'blue'}]}>
-          <Text style={{textAlign: 'center', color: 'blue'}}>Edit Profile</Text>
+        <TouchableOpacity
+          onPress={handleEditProfileClick}
+          style={[styles.btn, { borderColor: 'blue' }]}>
+          <Text style={{ textAlign: 'center', color: 'blue' }}>Edit Profile</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={handleLogout}
-          style={[styles.btn, {borderColor: 'red'}]}>
-          <Text style={{textAlign: 'center', color: 'red'}}>Logout</Text>
+          onPress={handleLogoutClick}
+          style={[styles.btn, { borderColor: 'red' }]}>
+          <Text style={{ textAlign: 'center', color: 'red' }}>Logout</Text>
         </TouchableOpacity>
       </View>
+
+      <EditProfileModal isEditProfileOpen={isEditProfileOpen} handleCloseEditProfileModal={handleCloseEditProfileModal} />
     </View>
   );
 };
@@ -54,7 +81,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 10,
     padding: 15,
-    paddingVertical:20,
+    paddingVertical: 20,
     elevation: 5,
   },
   profileHeader: {
@@ -76,7 +103,8 @@ const styles = StyleSheet.create({
   },
   countItem: {
     alignItems: 'center',
-    marginHorizontal: 10,
+    marginLeft: 10,
+    width: 65
   },
   username: {
     fontSize: 20,
