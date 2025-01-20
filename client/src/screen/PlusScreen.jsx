@@ -18,6 +18,7 @@ const PlusScreen = () => {
   const [imageUri, setImageUri] = useState(null);
   const [loading, setLoading] = useState(false);
   const [uploadResult, setUploadResult] = useState(null);
+  
   const [caption, setCaption] = useState('');
   const navigation = useNavigation();
   const {loggedUser, update} = useContext(AuthContext);
@@ -46,7 +47,7 @@ const PlusScreen = () => {
         navigation.navigate('ProfileScreen');
       } catch (error) {
         console.error(
-          'Error logging in:',
+          'Error uploading image:',
           error.response?.data || error.message,
         );
       } finally {

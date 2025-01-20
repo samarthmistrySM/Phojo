@@ -23,7 +23,9 @@ const CommentModal = ({
   post,
 }) => {
   const [commentText, setCommentText] = useState('');
+
   const { update } = useContext(AuthContext);
+
   const handleAddComment = async postId => {
     try {
       await postComment(postId, commentText);
@@ -37,6 +39,7 @@ const CommentModal = ({
       setCommentText('');
     }
   };
+  
   return (
     <Modal
       visible={isCommentModalVisible}
@@ -56,7 +59,7 @@ const CommentModal = ({
               <Text>No comments yet.</Text>
             ) : (
               post.comments.map((comment, index) => (
-                <Comment comment={comment} key={index}/>
+                <Comment comment={comment} key={index} />
               ))
             )}
           </ScrollView>

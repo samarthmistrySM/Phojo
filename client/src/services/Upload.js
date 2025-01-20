@@ -23,7 +23,7 @@ export const uploadImageToCloudinary = async imageUri => {
 
     return response.data.secure_url;
   } catch (error) {
-    console.error('Image upload failed:', error);
+    console.log('Image upload failed:', error);
     return error;
   }
 };
@@ -46,7 +46,7 @@ export const createPost = async (image, caption, userId) => {
     );
     return response.data;
   } catch (error) {
-    console.error(
+    console.log(
       'Error Uploading Post:',
       error.response?.data || error.message,
     );
