@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,24 +7,25 @@ import {
   Image,
   ActivityIndicator,
   TextInput,
+  SafeAreaView
 } from 'react-native';
-import {launchImageLibrary} from 'react-native-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 
 import AuthContext from '../context/AuthContext';
-import {createPost, uploadImageToCloudinary} from '../services/Upload';
-import {useNavigation} from '@react-navigation/native';
+import { createPost, uploadImageToCloudinary } from '../services/Upload';
+import { useNavigation } from '@react-navigation/native';
 
 const PlusScreen = () => {
   const [imageUri, setImageUri] = useState(null);
   const [loading, setLoading] = useState(false);
   const [uploadResult, setUploadResult] = useState(null);
-  
+
   const [caption, setCaption] = useState('');
   const navigation = useNavigation();
-  const {loggedUser, update} = useContext(AuthContext);
+  const { loggedUser, update } = useContext(AuthContext);
 
   const pickImage = () => {
-    launchImageLibrary({mediaType: 'photo', quality: 1}, response => {
+    launchImageLibrary({ mediaType: 'photo', quality: 1 }, response => {
       if (response.didCancel) {
         console.log('User canceled image picker');
       } else if (response.errorCode) {
@@ -40,7 +41,7 @@ const PlusScreen = () => {
     setLoading(true);
     const uploadedImageUrl = await uploadImageToCloudinary(imageUri);
     if (uploadedImageUrl) {
-      setUploadResult({url: uploadedImageUrl});
+      setUploadResult({ url: uploadedImageUrl });
       try {
         await createPost(uploadedImageUrl, caption, loggedUser._id);
         update();
@@ -57,52 +58,57 @@ const PlusScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Pick and Upload an Image</Text>
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <Text style={styles.title}>Pick and Upload an Image</Text>
 
-      <View style={styles.buttonContainer}>
-        <Button title={imageUri ? 'Change Image' : 'Pick Image'} onPress={pickImage} disabled={loading} />
-      </View>
+        <View style={styles.buttonContainer}>
+          <Button title={imageUri ? 'Change Image' : 'Pick Image'} onPress={pickImage} disabled={loading} />
+        </View>
 
-      {imageUri && !loading && (
-        <View style={styles.imageContainer}>
-          <Image source={{uri: imageUri}} style={styles.image} />
-          <TextInput
-            style={styles.captionInput}
-            placeholder="Enter caption"
-            value={caption}
-            onChangeText={setCaption}
+        {imageUri && !loading && (
+          <View style={styles.imageContainer}>
+            <Image source={{ uri: imageUri }} style={styles.image} />
+            <TextInput
+              style={styles.captionInput}
+              placeholder="Enter caption"
+              value={caption}
+              onChangeText={setCaption}
+            />
+          </View>
+        )}
+
+        <View style={styles.buttonContainer}>
+          <Button
+            title={loading ? 'Uploading...' : 'Upload Image'}
+            onPress={handleImageUpload}
+            disabled={loading || !imageUri || !caption}
           />
         </View>
-      )}
 
-      <View style={styles.buttonContainer}>
-        <Button
-          title={loading ? 'Uploading...' : 'Upload Image'}
-          onPress={handleImageUpload}
-          disabled={loading || !imageUri || !caption}
-        />
+        {loading && (
+          <ActivityIndicator size="large" color="#00ff00" style={styles.loader} />
+        )}
+
+        {uploadResult && !loading && (
+          <View style={styles.resultContainer}>
+            <Text style={styles.resultText}>Image uploaded successfully!</Text>
+          </View>
+        )}
       </View>
-
-      {loading && (
-        <ActivityIndicator size="large" color="#00ff00" style={styles.loader} />
-      )}
-
-      {uploadResult && !loading && (
-        <View style={styles.resultContainer}>
-          <Text style={styles.resultText}>Image uploaded successfully!</Text>
-        </View>
-      )}
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+  },
   container: {
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: 60,
     backgroundColor: '#f8f8f8',
   },
   title: {
@@ -127,12 +133,12 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
     shadowColor: '#000',
     shadowOpacity: 0.2,
-    shadowOffset: {width: 0, height: 4},
+    shadowOffset: { width: 0, height: 4 },
     shadowRadius: 4,
   },
-  imageContainer:{
+  imageContainer: {
     width: 250,
-    
+
   },
   captionInput: {
     width: '100%',

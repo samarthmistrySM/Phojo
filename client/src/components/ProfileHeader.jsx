@@ -16,7 +16,7 @@ const ProfileHeader = ({ user }) => {
   };
 
   const handleLogoutClick = () => {
-    Alert.alert('Logout', 'Are you want to Logout?', [
+    Alert.alert('Logout', 'Are you sure you want to Logout?', [
       {
         text: 'Cancel',
         onPress: () => console.log('Cancel Pressed'),
@@ -93,13 +93,14 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 50,
-    marginRight: 20,
+    marginRight: 10,
     borderWidth: 2,
     borderColor: '#007AFF',
   },
   profileCounts: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    width:'70%',
   },
   countItem: {
     alignItems: 'center',

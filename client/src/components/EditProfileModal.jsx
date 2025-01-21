@@ -63,18 +63,28 @@ const EditProfileModal = ({ isEditProfileOpen, handleCloseEditProfileModal }) =>
     }
   };
 
-  const handleUpdateClick = async () => {
-    try {
-      await updateUser(username, fullname, imageUri);
-      update();
-    } catch (error) {
-      Alert.alert(
-        'Update Failed',
-        error.response?.data?.message || 'Something went wrong!',
-      );
-    } finally{
-      handleCloseEditProfileModal();
-    }
+  const handleUpdateClick = () => {
+    Alert.alert('Confirm?', 'Are you sure you want to Update?', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+      },
+      {
+        text: 'OK', onPress: async () => {
+          try {
+            await updateUser(username, fullname, imageUri);
+            update();
+          } catch (error) {
+            Alert.alert(
+              'Update Failed',
+              error.response?.data?.message || 'Something went wrong!',
+            );
+          } finally {
+            handleCloseEditProfileModal();
+          }
+        }
+      },
+    ]);
   }
 
   return (
