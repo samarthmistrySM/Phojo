@@ -24,7 +24,7 @@ const ProfileScreen = () => {
         <ProfileHeader user={loggedUser} />
         {loggedUser &&
           loggedUser.posts?.map((post, index) => (
-            <PostCard loggedUser={loggedUser} key={index} post={post} />
+            <PostCard user={loggedUser} key={index} post={post} />
           ))}
       </ScrollView>
     </View>

@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useContext} from 'react';
 import {ScrollView, View, StyleSheet, Alert, SafeAreaView} from 'react-native';
-import {getAllPosts} from '../services/FeedService';
+import { getAllPosts } from '../services/FeedService';
 import AuthContext from '../context/AuthContext';
 import PostCard from '../components/PostCard';
 import Header from '../components/Header';

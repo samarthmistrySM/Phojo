@@ -1,11 +1,13 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const Header = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Phojo</Text>
-      <TouchableOpacity srt>
+      <TouchableOpacity onPress={()=>{navigation.navigate("ChatScreen")}}>
         <Image style={styles.sendImage} source={require('../assets/images/paperplane.fill.png')} />
       </TouchableOpacity>
     </View>

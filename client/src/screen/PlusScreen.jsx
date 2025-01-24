@@ -43,7 +43,7 @@ const PlusScreen = () => {
     if (uploadedImageUrl) {
       setUploadResult({ url: uploadedImageUrl });
       try {
-        await createPost(uploadedImageUrl, caption, loggedUser._id);
+        await createPost(uploadedImageUrl, caption);
         update();
         navigation.navigate('ProfileScreen');
       } catch (error) {

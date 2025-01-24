@@ -28,7 +28,7 @@ export const uploadImageToCloudinary = async imageUri => {
   }
 };
 
-export const createPost = async (image, caption, userId) => {
+export const createPost = async (image, caption) => {
   const token = await AsyncStorage.getItem('token');
   try {
     const response = await axios.post(
@@ -36,7 +36,6 @@ export const createPost = async (image, caption, userId) => {
       {
         image,
         caption,
-        userId,
       },
       {
         headers: {

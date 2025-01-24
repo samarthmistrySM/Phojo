@@ -7,6 +7,7 @@ import connectDb from "./config/connectDB.js";
 import userRouter from "./routes/userRouter.js";
 import authRouter from "./routes/authRouter.js";
 import postRouter from "./routes/postRouter.js";
+import chatRouter from "./routes/chatRouter.js"
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
 app.use("/api/posts", postRouter);
+app.use("/api/chat", chatRouter);
 
 const startServer = async () => {
   try {

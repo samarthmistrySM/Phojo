@@ -20,7 +20,8 @@ export const getPosts = async (req, res) => {
 };
 
 export const createPost = async (req, res) => {
-  const { caption, image, userId } = req.body;
+  const { caption, image} = req.body;
+  const userId = req.user.id;
   try {
     const user = await User.findById(userId);
 

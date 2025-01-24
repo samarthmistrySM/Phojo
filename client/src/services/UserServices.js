@@ -30,3 +30,57 @@ export const updateUser = async (username, fullname, image) => {
       throw error;
   }
 };
+
+export const searchUser = async (query) => {
+  try {
+    const token = await AsyncStorage.getItem('token');
+    const response = await axios.get(`${API_URL}/users/search/user?query=${query}`,{
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+
+    return response.data;
+  } catch (error) {
+    console.log('Error Getting Users',
+      error.response?.data || error.message,
+    );
+    throw error;
+  }
+}
+
+export const getUser = async (userId) => {
+  try {
+    const token = await AsyncStorage.getItem('token');
+    const response = await axios.get(`${API_URL}/users/user/${userId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    return response.data;
+  } catch (error) {
+    console.log('Error Getting User',
+      error.response?.data || error.message,
+    );
+    throw error;
+  }
+}
+
+export const followUser = async (userId) => {
+  try {
+    const token = await AsyncStorage.getItem('token');
+    const response = await axios.put(`${API_URL}/users/follow/${userId}`,
+      {}, {
+        headers : {
+          Authorization: `Bearer ${token}`
+        }
+      })
+
+      return response.data;
+  } catch (error) {
+    console.log('Error Following User',
+      error.response?.data || error.message,
+    );
+    throw error;
+  }
+}

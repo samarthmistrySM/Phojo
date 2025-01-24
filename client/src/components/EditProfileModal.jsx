@@ -2,7 +2,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Modal,
   TouchableOpacity,
   TextInput,
   Image,
@@ -15,6 +14,7 @@ import React, { useContext, useState } from 'react';
 import AuthContext from '../context/AuthContext';
 import { uploadImageToCloudinary } from '../services/Upload';
 import { updateUser } from '../services/UserServices';
+import GlobalModal from './GlobalModal';
 
 const EditProfileModal = ({ isEditProfileOpen, handleCloseEditProfileModal }) => {
   const { update, loggedUser } = useContext(AuthContext);
@@ -88,83 +88,42 @@ const EditProfileModal = ({ isEditProfileOpen, handleCloseEditProfileModal }) =>
   }
 
   return (
-    <Modal
-      visible={isEditProfileOpen}
-      animationType="slide"
-      transparent={true}
-      onRequestClose={handleCloseEditProfileModal}>
-      <View style={styles.modalContainer}>
-        <View style={styles.modalContent}>
-          <TouchableOpacity
-            style={styles.closeButton}
-            onPress={handleCloseEditProfileModal}>
-            <Text style={styles.closeButtonText}>×</Text>
-          </TouchableOpacity>
-          <Text style={styles.modalTitle}>Edit Profile</Text>
-          <View style={styles.formContainer}>
-            <Text style={styles.label}>Username:</Text>
-            <TextInput
-              style={styles.input}
-              placeholder='Enter your username'
-              value={username}
-              onChangeText={setUsername}
-            />
+    <GlobalModal title={"Edit Profile"} isModalOpen={isEditProfileOpen} handleModalClose={handleCloseEditProfileModal}>
+      <View style={styles.formContainer}>
+        <Text style={styles.label}>Username:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder='Enter your username'
+          value={username}
+          onChangeText={setUsername}
+        />
 
-            <Text style={styles.label}>Full Name:</Text>
-            <TextInput
-              style={styles.input}
-              placeholder='Enter your full name'
-              value={fullname}
-              onChangeText={setFullname}
-            />
+        <Text style={styles.label}>Full Name:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder='Enter your full name'
+          value={fullname}
+          onChangeText={setFullname}
+        />
 
-            <Text style={styles.label}>Avatar:</Text>
-            <Image source={{ uri: imageUri }} style={styles.avatar} />
+        <Text style={styles.label}>Avatar:</Text>
+        <Image source={{ uri: imageUri }} style={styles.avatar} />
 
-            <TouchableOpacity disabled={loading} onPress={pickImage} style={[styles.editButton, loading && { backgroundColor: '#b00000' }]}>
-              <Text style={styles.buttonText}>Edit Avatar</Text>
-            </TouchableOpacity>
+        <TouchableOpacity disabled={loading} onPress={pickImage} style={[styles.editButton, loading && { backgroundColor: '#b00000' }]}>
+          <Text style={styles.buttonText}>Edit Avatar</Text>
+        </TouchableOpacity>
 
-            <TouchableOpacity onPress={handleUpdateClick} disabled={loading} style={[styles.updateButton, loading && { backgroundColor: '#0050a5' }]}>
-              <Text style={styles.buttonText}>Update</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        <TouchableOpacity onPress={handleUpdateClick} disabled={loading} style={[styles.updateButton, loading && { backgroundColor: '#0050a5' }]}>
+          <Text style={styles.buttonText}>Update</Text>
+        </TouchableOpacity>
       </View>
-    </Modal>
+    </GlobalModal>
   );
 };
 
 export default EditProfileModal;
 
 const styles = StyleSheet.create({
-  modalContainer: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  },
-  modalContent: {
-    backgroundColor: '#fff',
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    padding: 20,
-    height: '90%',
-  },
-  closeButton: {
-    alignSelf: 'flex-end',
-    borderRadius: 15,
-    padding: 5,
-  },
-  closeButtonText: {
-    fontSize: 20,
-    color: '#333',
-  },
-  modalTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
   formContainer: {
     flex: 1,
     justifyContent: 'space-between',

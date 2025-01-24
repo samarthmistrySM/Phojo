@@ -16,10 +16,10 @@ import CommentModal from './CommentModal';
 const commentIcon = require("../assets/images/message.png");
 const likeIcon = require("../assets/images/heart.png");
 const disLikeIcon = require("../assets/images/heart.fill.png");
-const deleteIcon = require("../assets/images/xmark.bin.png");
+const deleteIcon = require("../assets/images/trash.png");
 
-const PostCard = ({ index, post, loggedUser }) => {
-  const { update } = useContext(AuthContext);
+const PostCard = ({ index, post, user }) => {
+  const { update, loggedUser } = useContext(AuthContext);
   const [isCommentModalVisible, setIsCommentModalVisible] = useState(false);
 
   const HandleDeletePost = postId => {
@@ -71,20 +71,20 @@ const PostCard = ({ index, post, loggedUser }) => {
         <Image
           style={styles.profileImage}
           source={{
-            uri: loggedUser?._id === post.user ? loggedUser.dp : post.user.dp,
+            uri: user?._id === post.user ? user.dp : post.user.dp,
           }}
         />
         <Text style={styles.username}>
-          {loggedUser?._id === post.user
-            ? loggedUser.fullname
+          {user?._id === post.user
+            ? user.fullname
             : post.user.fullname}
         </Text>
       </View>
       <Image style={styles.postImage} source={{ uri: post.image }} />
       <View style={styles.captionContainer}>
         <Text style={styles.usernameText}>
-          {loggedUser?._id === post.user
-            ? loggedUser.username
+          {user?._id === post.user
+            ? user.username
             : post.user.username}
         </Text>
         <Text style={styles.caption}>{post.caption}</Text>
@@ -102,9 +102,12 @@ const PostCard = ({ index, post, loggedUser }) => {
           <Image style={[styles.icon, { tintColor: 'green' }]} source={commentIcon} />
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.btn} onPress={() => HandleDeletePost(post._id)}>
-          <Image style={[styles.icon, { tintColor: 'red' }]} source={deleteIcon} />
-        </TouchableOpacity>
+        {loggedUser?._id === (post.user._id || post.user) && (
+          <TouchableOpacity style={styles.btn} onPress={() => HandleDeletePost(post._id)}>
+            <Image style={[styles.icon, { tintColor: 'red', height: 25 }]} source={deleteIcon} />
+          </TouchableOpacity>
+        )}
+
       </View>
       <Text style={styles.date}>
         {formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}
